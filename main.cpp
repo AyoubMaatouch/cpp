@@ -1,12 +1,12 @@
 #include <iostream>
-int cout (std::string x)
-{
-    std::cout << x;
-    return 0;
-}
+#include <string>
+
 int    main(void)
 {
-    cout << "Huroku\n";
+    std::string buff;
+    std::cout << "Hi What is your name ?\n";
+    std::getline(std::cin,buff);
+    std::cout << buff << std::endl;
     return (0);
 }
 

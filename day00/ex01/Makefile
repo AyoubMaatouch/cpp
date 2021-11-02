@@ -1,8 +1,8 @@
 CC=g++
-SRC=megaphone.cpp
+SRC=phonebook.cpp
 DEPS= $(SRC) 
 CFLAGS=-Wall -Wextra -Werror --std=c++98
-NAME=megaphone
+NAME=phonebook
 
 all: $(NAME)
 
