@@ -1,17 +1,37 @@
 #include "Phonebook.hpp"
 
+void    check_eof(bool eof)
+{
+    if (eof)
+    exit(1);
+}
+
 Phonebook ft_adding(Phonebook phonebook, int i)
 {
     if (i < 8)
     {
+        std::string data;
+
         std::cout<<"Whats Your first name ?"<<std::endl;
-        std::cin >> phonebook.myphonebook[i].first_name;
+        getline(std::cin, data);
+        check_eof(std::cin.eof());
+        phonebook.myphonebook[i].set_Fname(data);
         std::cout<<"Whats Your last name ?"<<std::endl;
-        std::cin >> phonebook.myphonebook[i].last_name;
+        getline(std::cin, data);
+        check_eof(std::cin.eof());
+        phonebook.myphonebook[i].set_Lname(data);
         std::cout<<"Provide a nickname for you."<<std::endl;
-        std::cin >> phonebook.myphonebook[i].nickname;
-        std::cout<<"Tell me your darkest secret."<<phonebook.myphonebook[i].nickname<<std::endl;
-        std::cin >> phonebook.myphonebook[i].darkest_secret;
+        getline(std::cin, data);
+        check_eof(std::cin.eof());
+        phonebook.myphonebook[i].set_Nname(data);
+        std::cout<<"What's Your Phone Number ?"<<std::endl;
+        getline(std::cin, data);
+        check_eof(std::cin.eof());
+        phonebook.myphonebook[i].set_Phone(std::stoi(data));
+        std::cout<<"Tell me your darkest secret."<<std::endl;
+        getline(std::cin, data);
+        check_eof(std::cin.eof());
+        phonebook.myphonebook[i].set_Dsecret(data);
     }
     else
         std::cout<<"Your Phonebook has reached it's Limets"<<std::endl;
@@ -20,14 +40,14 @@ Phonebook ft_adding(Phonebook phonebook, int i)
 
 int ft_search(Phonebook phonebook)
 {
-    int i = 0;
-    while (i < 8 )
+    for (int i = 0; i < 8 && !(phonebook.myphonebook[i].get_Fname().empty()); i++)
     {
-        std::cout <<"first"<<phonebook.myphonebook[0].first_name<<std::endl;
-        std::cout <<"Last"<<phonebook.myphonebook[0].last_name<<std::endl;
-        i++;
-    }
-    
+        std::cout<<phonebook.myphonebook[i].get_Fname()<<"|";    
+        std::cout<<phonebook.myphonebook[i].get_Lname()<< "|";    
+        std::cout<<phonebook.myphonebook[i].get_Nname()<<"|";    
+        std::cout<<phonebook.myphonebook[i].get_Phone()<<"|";    
+        std::cout<<phonebook.myphonebook[i].get_Dsecret()<<std::endl;
+    }    
     return EXIT_SUCCESS;
 }
 
@@ -35,15 +55,17 @@ int main (void)
 {
     Phonebook instance;
     std::string cmd;
+
     int i = -1;
     while (true)
     {    
-        std::cout<<"Enter your input"<<std::endl;
-        std::cin>>cmd;
+        std::cout<<"Enter your input:"<<std::endl;
+        std::getline(std::cin, cmd);
+        check_eof(std::cin.eof());
         if (cmd == "ADD")
               instance = ft_adding(instance, ++i);
         else if (cmd == "SEARCH")
-             ft_search(instance);
+               ft_search(instance);
         else if (cmd == "EXIT") 
             return EXIT_SUCCESS;
         else
