@@ -3,7 +3,7 @@
 void    check_eof(bool eof)
 {
     if (eof)
-    exit(1);
+        exit(1);
 }
 bool isNumber(std::string str)
 {
@@ -65,7 +65,6 @@ Phonebook ft_adding(Phonebook phonebook, int i)
             getline(std::cin, data);
             check_eof(std::cin.eof());    
         }
-
         phonebook.myphonebook[i].set_Phone(std::stol(data));
         std::cout<<"Tell me your darkest secret."<<std::endl;
         getline(std::cin, data);
@@ -94,7 +93,7 @@ int ft_search(Phonebook phonebook)
             std::cout<< std::setw (10)<< i<<"|";    
             std::cout<< std::setw (10)<< print_value(phonebook.myphonebook[i].get_Fname())<<"|";    
             std::cout<< std::setw (10)<< print_value(phonebook.myphonebook[i].get_Lname())<<"|";    
-            std::cout<< std::setw (10)<< print_value(phonebook.myphonebook[i].get_Nname())<<"."<<std::endl;
+            std::cout<< std::setw (10)<< print_value(phonebook.myphonebook[i].get_Nname())<<"|"<<std::endl;
         }
         while (true)
         {
