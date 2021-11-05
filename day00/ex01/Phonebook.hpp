@@ -1,6 +1,6 @@
 #include <string>
 #include <iostream>
-
+#include <iomanip> 
 
 const std::string NOT_A_STRING = "";
 class Contact 
@@ -10,7 +10,7 @@ private:
     std::string last_name;
     std::string nickname;
     std::string darkest_secret;
-    int phone_number;
+    double phone_number;
 public:
     Contact(void);
     void set_Fname(std::string data){
