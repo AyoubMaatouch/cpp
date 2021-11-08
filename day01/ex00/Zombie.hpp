@@ -1,22 +1,20 @@
-#include <iostream>
+#ifndef ZOMBIE_HPP
+#define ZOMBIE_HPP
 
+#include <iostream>
+#define NOT_STRING ""
 
 class Zombie {
-    private:
-        static int size;
-    public:
-        Zombie(void);
-         int getSize(void)
-            {
-                return Zombie::size;
-            }
-        ~Zombie(void);      
+	std::string	z_name;
+	public:
+			Zombie(void);
+			void	setZombieName(std::string name);
+			void	announce( void );
+			~Zombie(void);
 };
 
-Zombie::Zombie (void) {
-    std::cout<< "const called"<<std::endl;
-    this->size += 1;
-}
-Zombie::~Zombie (void) {
-    std::cout<< "dest called"<<std::endl;
-}
+void	create_Zombies(void);
+void	randomChump( std::string name );
+Zombie*	newZombie( std::string name );
+void	fun(void);
+#endif

@@ -5,6 +5,7 @@ void    check_eof(bool eof)
 	if (eof)
 		exit(1);
 }
+
 bool isNumber(std::string str)
 {
 	for (int i = 0; str[i] ; i++) {
@@ -30,13 +31,22 @@ std::string  print_value(std::string data)
 
 int  print_contact(Contact cont)
 {
-	std::cout<<cont.get_Fname()<<std::endl;
-	std::cout<<cont.get_Lname()<<std::endl;
-	std::cout<<cont.get_Nname()<<std::endl;
-	std::cout<<cont.get_Phone()<<std::endl;
-	std::cout<<cont.get_Dsecret()<<std::endl;
+	if (cont.get_Fname().empty())
+		{
+			std::cout<<"Not Found!"<<std::endl;
+			return EXIT_FAILURE;
+		}
+	else
+	{
+		std::cout<<cont.get_Fname()<<std::endl;
+		std::cout<<cont.get_Lname()<<std::endl;
+		std::cout<<cont.get_Nname()<<std::endl;
+		std::cout<<cont.get_Phone()<<std::endl;
+		std::cout<<cont.get_Dsecret()<<std::endl;
+	}
 	return EXIT_SUCCESS;
 }   
+
 
 Phonebook ft_adding(Phonebook phonebook, int i)
 {
@@ -47,28 +57,68 @@ Phonebook ft_adding(Phonebook phonebook, int i)
 		std::cout<<"Whats Your first name ?"<<std::endl;
 		getline(std::cin, data);
 		check_eof(std::cin.eof());
+		while (data.empty())
+		{
+			std::cout<<"Whats Your first name ?. (Can't Be EMPTY)"<<std::endl;
+			getline(std::cin, data);
+			check_eof(std::cin.eof());
+		}
+		
 		phonebook.myphonebook[i].set_Fname(data);
 		std::cout<<"Whats Your last name ?"<<std::endl;
 		getline(std::cin, data);
 		check_eof(std::cin.eof());
+		while (data.empty())
+		{
+			std::cout<<"Whats Your last name ?. (Can't Be EMPTY)"<<std::endl;
+			getline(std::cin, data);
+			check_eof(std::cin.eof());
+		}
 		phonebook.myphonebook[i].set_Lname(data);
+
 		std::cout<<"Provide a nickname for you."<<std::endl;
 		getline(std::cin, data);
 		check_eof(std::cin.eof());
+		while (data.empty())
+		{
+			std::cout<<"Provide a nickname for you. (Can't Be EMPTY)"<<std::endl;
+			getline(std::cin, data);
+			check_eof(std::cin.eof());
+		}
 		phonebook.myphonebook[i].set_Nname(data);
+		//phone Number
 		std::cout<<"What's Your Phone Number ?"<<std::endl;
 		getline(std::cin, data);
 		check_eof(std::cin.eof());
+		while (data.empty())
+		{
+			std::cout<<"What's Your Phone Number ? (Can't Be EMPTY)"<<std::endl;
+			getline(std::cin, data);
+			check_eof(std::cin.eof());
+		}
 		while (!isNumber(data))
 		{
 			std::cout<<"Please ENTER A VALID Phone Number !"<<std::endl;
 			getline(std::cin, data);
 			check_eof(std::cin.eof());    
+			while (data.empty())
+			{
+				std::cout<<"Please ENTER A VALID Phone Number !(Can't Be EMPTY)"<<std::endl;
+				getline(std::cin, data);
+				check_eof(std::cin.eof());
+			}
 		}
 		phonebook.myphonebook[i].set_Phone(std::stol(data));
+		//Dark Secret
 		std::cout<<"Tell me your darkest secret."<<std::endl;
 		getline(std::cin, data);
 		check_eof(std::cin.eof());
+		while (data.empty())
+		{
+			std::cout<<"Tell me your darkest secret.(Can't Be EMPTY)"<<std::endl;
+			getline(std::cin, data);
+			check_eof(std::cin.eof());
+		}
 		phonebook.myphonebook[i].set_Dsecret(data);
 	}
 	else
@@ -103,14 +153,16 @@ int ft_search(Phonebook phonebook)
 			int index;
 			getline(std::cin, input);
 			check_eof(std::cin.eof());
-			if (!isNumber(input))
+			if (!isNumber(input) || input.empty())
 				continue ;
 			index = stoi(input);
 			if (index < 0 &&  index > 8)
 				std::cout << "insert a valid index."<<std::endl;
 			else
-				return print_contact(phonebook.myphonebook[index]);
-
+				if (!print_contact(phonebook.myphonebook[index]))
+					continue ;
+				else
+					return EXIT_SUCCESS;
 		}
 	}
 	return EXIT_SUCCESS;
