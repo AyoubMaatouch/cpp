@@ -27,8 +27,9 @@ std::string ReplaceAll(std::string str, const std::string& s1, const std::string
 	return str;
 }
 
-int main (int ac, char **av) 
+int main (int ac, char **av)
 {
+
 	if (ac == 2)
 	{
 		std::ifstream in_file;

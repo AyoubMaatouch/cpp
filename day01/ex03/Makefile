@@ -1,4 +1,4 @@
-CC=g++
+CC=clang++
 SRC=HumanA.cpp Weapon.cpp main.cpp HumanB.cpp
 DEPS= $(SRC) 
 CFLAGS=-Wall -Wextra -Werror --std=c++98

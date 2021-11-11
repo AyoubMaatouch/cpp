@@ -1,4 +1,4 @@
-CC=g++
+CC=clang++
 SRC=megaphone.cpp
 DEPS= $(SRC) 
 CFLAGS=-Wall -Wextra -Werror --std=c++98

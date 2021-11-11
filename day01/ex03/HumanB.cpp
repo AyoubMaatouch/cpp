@@ -1,21 +1,13 @@
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string name)
-{
-    this->name = name;
-}
+HumanB::HumanB(std::string name): name(name) {};
 
 void    HumanB::attack(void)
 {
-    std::cout<<this->name<<" attacks with his "<<this->gun<<std::endl;
+    std::cout<<this->name<<" attacks with his "<<this->weapon->getType()<<std::endl;
 }
 
-void    HumanB::setWeapon(Weapon wp)
+void    HumanB::setWeapon(Weapon& weapon)
 {
-    this->gun = wp.getType();
-}
-
-HumanB::~HumanB(void)
-{
-    
+    this->weapon = &weapon;
 }

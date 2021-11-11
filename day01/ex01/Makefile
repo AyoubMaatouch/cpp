@@ -1,4 +1,4 @@
-CC=g++
+CC=clang++
 SRC=Zombie.cpp main.cpp ZombieHorde.cpp
 DEPS= $(SRC) 
 CFLAGS=-Wall -Wextra -Werror --std=c++98

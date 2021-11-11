@@ -2,7 +2,6 @@
 
 Weapon::Weapon(std::string type)
 {
-    // this->here  = this->type;
     this->type = type;
 }
 
@@ -15,7 +14,4 @@ void Weapon::setType (std::string set_type)
 {
     this->type = set_type;
 }
-Weapon::~Weapon(void)
-{
 
-}
