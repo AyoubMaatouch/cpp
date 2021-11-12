@@ -108,7 +108,7 @@ Phonebook ft_adding(Phonebook phonebook, int i)
 				check_eof(std::cin.eof());
 			}
 		}
-		phonebook.myphonebook[i].set_Phone(std::stol(data));
+		phonebook.myphonebook[i].set_Phone(data);
 		//Dark Secret
 		std::cout<<"Tell me your darkest secret."<<std::endl;
 		getline(std::cin, data);
@@ -154,7 +154,10 @@ int ft_search(Phonebook phonebook)
 			getline(std::cin, input);
 			check_eof(std::cin.eof());
 			if (!isNumber(input) || input.empty())
-				continue ;
+				{
+					std::cout << "insert a valid index."<<std::endl;
+					continue ;
+				}
 			index = stoi(input);
 			if (index < 0 &&  index > 8)
 				std::cout << "insert a valid index."<<std::endl;

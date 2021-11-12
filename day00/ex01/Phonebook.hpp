@@ -10,7 +10,7 @@ class Contact
 		std::string last_name;
 		std::string nickname;
 		std::string darkest_secret;
-		double phone_number;
+		std::string phone_number;
 	public:
 		Contact(void);
 		void set_Fname(std::string data){
@@ -41,10 +41,10 @@ class Contact
 		{
 			return this->darkest_secret;
 		}
-		void set_Phone(int data){
+		void set_Phone(std::string data){
 			this->phone_number = data;
 		}
-		int  get_Phone (void)
+		std::string  get_Phone (void)
 		{
 			return this->phone_number;
 		}
@@ -57,7 +57,7 @@ class Phonebook
 };
 
 Contact::Contact (void ){
-	phone_number = 0 ;   
+	phone_number = NOT_A_STRING ;   
 	first_name = NOT_A_STRING;
 	last_name = NOT_A_STRING;
 	nickname = NOT_A_STRING;
