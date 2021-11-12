@@ -20,7 +20,7 @@ std::string ReplaceAll(std::string str, const std::string& s1, const std::string
 	{
 		while ((place = str.find(s1)) != std::string::npos)
 		{ 
-			str.erase(place, 5);
+			str.erase(place, s1.length());
 			str.insert(place, s2);
 		}
 	}
@@ -30,7 +30,7 @@ std::string ReplaceAll(std::string str, const std::string& s1, const std::string
 int main (int ac, char **av)
 {
 
-	if (ac == 2)
+	if (ac == 4)
 	{
 		std::ifstream in_file;
 		std::ofstream out_file;
@@ -45,7 +45,7 @@ int main (int ac, char **av)
 				return error_file("Destination File Error");
 			for( std::string line; getline( in_file, line ); )
 			{
-				out_file << ReplaceAll(line, std::string("Ayoub"), std::string("Ayoub")) << std::endl;
+				out_file << ReplaceAll(line, std::string(av[2]), std::string(av[3])) << std::endl;
 			}
 			in_file.close();
 			out_file.close();

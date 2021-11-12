@@ -1,0 +1,19 @@
+CC=clang++
+SRC=main.cpp
+DEPS= $(SRC) 
+CFLAGS=-Wall -Wextra -Werror --std=c++98
+Ayoub=replace
+
+all: $(Ayoub)
+
+$(Ayoub): $(DEPS)
+	$(CC) $(CFLAGS) $(SRC) -o $(Ayoub)
+
+clean:
+	rm -rf $(Ayoub)
+
+fclean: clean
+
+re: clean all
+
+.PHONY: all clean fclean re test
