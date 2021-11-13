@@ -8,6 +8,6 @@ class Karen {
             void error( void );
 
         public:
-            void (Karen::*ptr[4]) ();
+            void (Karen::*ptr[4]) (void);
             void complain( std::string level );
 };

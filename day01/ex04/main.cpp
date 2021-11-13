@@ -57,4 +57,3 @@ int main (int ac, char **av)
 		return error_file("Argument ERROR !");
 	return EXIT_SUCCESS;
 }
-
