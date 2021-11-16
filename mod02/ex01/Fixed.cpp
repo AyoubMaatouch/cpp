@@ -9,14 +9,12 @@ Fixed::Fixed(void)
 Fixed::Fixed(int const number)
 {
     std::cout<<"Default constructor called"<<std::endl;
-    this->value = roundf(number << this->fra_bit);
-    // std::cout<<this->value<<std::endl;
+    this->value = number << this->fra_bit;
 }   
 Fixed::Fixed(float const number)
 {
     std::cout<<"Default constructor called"<<std::endl;
-    this->value = number * (powf (2 , this->fra_bit));
-    // std::cout<<this->value<<std::endl;
+    this->value = (float)roundf(number * (float)(powf (2 , this->fra_bit)));
 }   
 
 Fixed::Fixed(Fixed const &src )
@@ -26,11 +24,11 @@ Fixed::Fixed(Fixed const &src )
 }   
 int Fixed::toInt(void) const
 {
-    return roundf(this->value >> this->fra_bit);
+    return this->value / 256;
 }
 float Fixed::toFloat(void) const
 {
-    return this->value >> this->fra_bit;
+    return (float)this->value / 256;
 }
 
 Fixed::~Fixed(void)
