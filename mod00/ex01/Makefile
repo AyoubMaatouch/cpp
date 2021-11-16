@@ -1,5 +1,5 @@
 CC=clang++
-SRC=phonebook.cpp
+SRC=Phonebook.cpp Contact.cpp main.cpp
 DEPS= $(SRC) 
 CFLAGS=-Wall -Wextra -Werror --std=c++98
 NAME=phonebook

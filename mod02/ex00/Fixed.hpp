@@ -10,5 +10,5 @@ class Fixed {
     Fixed& operator=(Fixed const &src);
     private:
         int value;
-        static int fra_bit;
+        static int fra_bit = 8;
 };
