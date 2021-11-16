@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 
 class Fixed {
     public:
@@ -8,14 +9,13 @@ class Fixed {
     Fixed(float const number);
     ~Fixed();
     // member functions
-    int getRawBits( void ) const;
-    void setRawBits( int const raw );
     float toFloat( void ) const;
     int toInt( void ) const;
-    Fixed& operator=(Fixed const &src);
-    float operator<<(float const number);
+
     
     private:
         int value;
         static const int fra_bit = 8;
 };
+
+std::ostream &operator<<(std::ostream&, const Fixed&);
