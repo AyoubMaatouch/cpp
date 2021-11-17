@@ -13,6 +13,8 @@ class Fixed {
     int     toInt( void ) const;
     int     getRawBits(void ) const;
     void    setRawBits(int const raw);
+    Fixed&  max(Fixed const &a, Fixed const &b);
+    Fixed&  min(Fixed const &a, Fixed const &b);
     Fixed&  operator=(Fixed const &src);
     
     private:

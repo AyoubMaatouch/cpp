@@ -8,7 +8,8 @@ class Fixed {
     int getRawBits( void ) const;
     void setRawBits( int const raw );
     Fixed& operator=(Fixed const &src);
+    
     private:
         int value;
-        static int fra_bit = 8;
+        static const int fra_bit = 8;
 };
