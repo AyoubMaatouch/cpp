@@ -13,10 +13,19 @@ class Fixed {
     int     toInt( void ) const;
     int     getRawBits(void ) const;
     void    setRawBits(int const raw);
-    Fixed&  max(Fixed const &a, Fixed const &b);
-    Fixed&  min(Fixed const &a, Fixed const &b);
+    static float  max(Fixed const &a, Fixed const &b);
+    static float  min(Fixed const &a, Fixed const &b);
+    //operators
     Fixed&  operator=(Fixed const &src);
-    
+    bool  operator==(Fixed const &src);
+    bool  operator<=(Fixed const &src);
+    bool  operator>=(Fixed const &src);
+    bool  operator!=(Fixed const &src);
+    Fixed&  operator*(Fixed const &src);
+    Fixed&  operator++(void);
+    Fixed  operator++(int);
+    Fixed&  operator--(void);
+
     private:
         int value;
         static const int fra_bit = 8;

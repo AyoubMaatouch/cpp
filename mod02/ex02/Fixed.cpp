@@ -2,46 +2,55 @@
 
 Fixed::Fixed(void)
 {
-    std::cout<<"Default constructor called"<<std::endl;
+    // std::cout<<"Default constructor called"<<std::endl;
     this->value = 0;
 }   
 
 Fixed::Fixed(int const number)
 {
-    std::cout<<"Int constructor called"<<std::endl;
+    // std::cout<<"Int constructor called"<<std::endl;
     this->value = number << this->fra_bit ;
 }   
 Fixed::Fixed(float const number)
 {
-    std::cout<<"Float constructor called"<<std::endl;
-    this->value = (float)roundf(number * (float)(powf (2 , this->fra_bit)));
+    // std::cout<<"Float constructor called"<<std::endl;
+    this->value = (float)roundf(number * (1 << this->fra_bit));
 }   
 
 Fixed::Fixed(Fixed const &src )
 {
-    std::cout<<"Copy constructor called"<<std::endl;
+    // std::cout<<"Copy constructor called"<<std::endl;
     *this = src;
 }   
 
 
 int     Fixed::getRawBits(void ) const {
 
-    std::cout<<"getRawBits member function called"<<std::endl;
     return (this->value);
 }
 
 void     Fixed::setRawBits(int const raw) {
 
-    std::cout<<"setRawBits member function called"<<std::endl;
     this->value = raw;
 }
 
-Fixed&    Fixed::operator=(Fixed const &src) {
+float    Fixed::max(Fixed const &a,Fixed const &b) {
 
-    std::cout<<"Assignation operator called"<<std::endl;
-    this->value = src.value;
-    return *this;
+    if (a.toFloat() > b.toFloat())
+            return a.toFloat();
+    else
+        return b.toFloat();
 }
+
+float    Fixed::min(Fixed const &a,Fixed const &b) {
+
+    if (a.toFloat() > b.toFloat())
+            return b.toFloat();
+    else
+        return a.toFloat();
+}
+
+
 int Fixed::toInt(void) const
 {
     return this->value / 256;
@@ -49,13 +58,62 @@ int Fixed::toInt(void) const
 
 float Fixed::toFloat(void) const
 {
-    return( (float)this->value / 256);
+    return ((float)this->value / 256);
 }
 
 Fixed::~Fixed(void)
 {
-    std::cout<<"Destructor called"<<std::endl;
+    // std::cout<<"Destructor called"<<std::endl;
 }   
+
+bool    Fixed::operator==(Fixed const &src) 
+{
+   return (this->toFloat() == src.toFloat());
+}
+
+bool    Fixed::operator!=(Fixed const &src) 
+{
+   return (this->toFloat() != src.toFloat());
+}
+
+bool    Fixed::operator<=(Fixed const &src) 
+{
+   return (this->toFloat() <= src.toFloat());
+}
+
+bool    Fixed::operator>=(Fixed const &src) 
+{
+   return (this->toFloat() >= src.toFloat());
+}
+
+Fixed&    Fixed::operator*(Fixed const &src) {
+   this->value *= (src.value) / 256;
+    return *this;
+}
+
+Fixed&    Fixed::operator=(Fixed const &src) {
+
+   this->value = src.value;
+    return *this;
+}
+
+Fixed&    Fixed::operator++(void) {
+    this->value++;
+    return *this;
+}
+
+Fixed    Fixed::operator++(int )
+{
+    Fixed tmp(*this);
+
+    this->value += 1;
+    return tmp;
+}
+
+Fixed&    Fixed::operator--(void) {
+    this->value--;
+    return *this;
+}
 
 std::ostream&    operator<<(std::ostream& stream, const Fixed& other)
 {
