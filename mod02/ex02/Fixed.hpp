@@ -17,15 +17,17 @@ class Fixed {
     static float  min(Fixed const &a, Fixed const &b);
     //operators
     Fixed&  operator=(Fixed const &src);
-    bool  operator==(Fixed const &src);
-    bool  operator<=(Fixed const &src);
-    bool  operator>=(Fixed const &src);
-    bool  operator!=(Fixed const &src);
+    bool    operator==(Fixed const &src);
+    bool    operator<=(Fixed const &src);
+    bool    operator>=(Fixed const &src);
+    bool    operator!=(Fixed const &src);
     Fixed&  operator*(Fixed const &src);
     Fixed&  operator++(void);
-    Fixed  operator++(int);
+    Fixed   operator++(int);
     Fixed&  operator--(void);
-
+    Fixed   operator+(Fixed const &src);
+    Fixed   operator-(Fixed const &src);
+    Fixed   operator/(Fixed const &src);
     private:
         int value;
         static const int fra_bit = 8;

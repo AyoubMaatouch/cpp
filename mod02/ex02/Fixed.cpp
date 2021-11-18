@@ -102,7 +102,7 @@ Fixed&    Fixed::operator++(void) {
     return *this;
 }
 
-Fixed    Fixed::operator++(int )
+Fixed   Fixed::operator++(int)
 {
     Fixed tmp(*this);
 
@@ -114,6 +114,20 @@ Fixed&    Fixed::operator--(void) {
     this->value--;
     return *this;
 }
+
+Fixed    Fixed::operator+(Fixed const &src)
+{
+    return (this->toFloat() + src.toFloat());
+}
+Fixed    Fixed::operator-(Fixed const &src)
+{
+    return (this->toFloat() - src.toFloat());
+}
+Fixed    Fixed::operator/(Fixed const &src)
+{
+    return (this->toFloat() / src.toFloat());
+}
+
 
 std::ostream&    operator<<(std::ostream& stream, const Fixed& other)
 {
