@@ -80,18 +80,14 @@ bool    Fixed::operator>=(Fixed const &src)
    return (this->toFloat() >= src.toFloat());
 }
 
-Fixed&    Fixed::operator*(Fixed const &src) {
-   this->value *= (src.value) / 256;
-    return *this;
-}
 
-Fixed&    Fixed::operator=(Fixed const &src) {
+Fixed    Fixed::operator=(Fixed const &src) {
 
    this->value = src.value;
     return *this;
 }
 
-Fixed&    Fixed::operator++(void) {
+Fixed    Fixed::operator++(void) {
     this->value++;
     return *this;
 }
@@ -104,24 +100,30 @@ Fixed   Fixed::operator++(int)
     return tmp;
 }
 
-Fixed&    Fixed::operator--(void) {
+Fixed    Fixed::operator--(void) {
     this->value--;
     return *this;
 }
 
-Fixed    Fixed::operator+(Fixed const &src)
+Fixed    Fixed::operator*(Fixed const &src) 
 {
-    return (this->toFloat() + src.toFloat());
-}
-Fixed    Fixed::operator-(Fixed const &src)
-{
-    return (this->toFloat() - src.toFloat());
-}
-Fixed    Fixed::operator/(Fixed const &src)
-{
-    return (this->toFloat() / src.toFloat());
+       return Fixed(this->toFloat() * src.toFloat());
 }
 
+Fixed    Fixed::operator+(Fixed const &src)
+{
+    return Fixed(this->toFloat() + src.toFloat());
+}
+
+Fixed    Fixed::operator-(Fixed const &src)
+{
+    return Fixed(this->toFloat() - src.toFloat());
+}
+
+Fixed    Fixed::operator/(Fixed const &src)
+{
+    return Fixed(this->toFloat() / src.toFloat());
+}
 
 std::ostream&    operator<<(std::ostream& stream, const Fixed& other)
 {
