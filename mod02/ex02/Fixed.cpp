@@ -2,27 +2,22 @@
 
 Fixed::Fixed(void)
 {
-    // std::cout<<"Default constructor called"<<std::endl;
     this->value = 0;
 }   
 
 Fixed::Fixed(int const number)
 {
-    // std::cout<<"Int constructor called"<<std::endl;
     this->value = number << this->fra_bit ;
 }   
 Fixed::Fixed(float const number)
 {
-    // std::cout<<"Float constructor called"<<std::endl;
     this->value = (float)roundf(number * (1 << this->fra_bit));
 }   
 
 Fixed::Fixed(Fixed const &src )
 {
-    // std::cout<<"Copy constructor called"<<std::endl;
     *this = src;
 }   
-
 
 int     Fixed::getRawBits(void ) const {
 
@@ -49,7 +44,6 @@ float    Fixed::min(Fixed const &a,Fixed const &b) {
     else
         return a.toFloat();
 }
-
 
 int Fixed::toInt(void) const
 {
