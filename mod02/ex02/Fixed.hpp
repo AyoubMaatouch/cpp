@@ -3,7 +3,7 @@
 
 class Fixed {
     public:
-    Fixed();
+    Fixed(void);
     Fixed(Fixed const &src);
     Fixed(int const number);
     Fixed(float const number);
@@ -16,21 +16,22 @@ class Fixed {
     static float  max(Fixed const &a, Fixed const &b);
     static float  min(Fixed const &a, Fixed const &b);
     //operators
-    Fixed  operator=(Fixed const &src);
+    Fixed   &operator=(Fixed const &src);
     bool    operator==(Fixed const &src);
     bool    operator<=(Fixed const &src);
     bool    operator>=(Fixed const &src);
     bool    operator!=(Fixed const &src);
-    Fixed   operator++(void);
+    Fixed  &operator++(void);
     Fixed   operator++(int);
-    Fixed   operator--(void);
+    Fixed  &operator--(void);
+    Fixed   operator--(int);
     Fixed   operator*(Fixed const &src);
     Fixed   operator+(Fixed const &src);
     Fixed   operator-(Fixed const &src);
     Fixed   operator/(Fixed const &src);
     private:
-        int value;
-        static const int fra_bit = 8;
+        int _value;
+        static const int _fra_bit = 8;
 };
 
 std::ostream &operator<<(std::ostream&, const Fixed&);
