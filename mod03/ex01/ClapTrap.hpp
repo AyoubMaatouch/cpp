@@ -1,8 +1,11 @@
+#ifndef CLAP_TRAP_HPP
+#define CLAP_TRAP_HPP
+
 #include <iostream>
 
 
 class ClapTrap {
-    private:
+    protected:
         
         std::string name;
         int hitpoints;
@@ -10,13 +13,14 @@ class ClapTrap {
         int attack_damage;
 
     public:
-        
         ClapTrap(std::string name);
         ClapTrap(ClapTrap const &src);
         ClapTrap operator=(ClapTrap const &clap);
         ~ClapTrap();
         void attack(std::string const & target);
-        void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
+        void takeDamage(unsigned int amount);
         std::string get_name(void);
 };
+
+#endif

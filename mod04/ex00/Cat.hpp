@@ -9,8 +9,8 @@ class Cat : public Animal{
         Cat(const Cat&);
         Cat& operator=(const Cat&);
         ~Cat();
-        void   makeSound();
-        std::string getType();
+        void   makeSound() const;
+        std::string getType() const;
 };
 
 #endif

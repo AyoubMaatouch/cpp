@@ -2,13 +2,15 @@
 
 Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name)
 {
-        //check_grade
+        (void)grade;
 } 
 
-Bureaucrat::Bureaucrat(const Bureaucrat &src) : name(src.name), grade(src.grade) {}
+Bureaucrat::Bureaucrat(const Bureaucrat  &src) : name(src.name), grade(src.grade) {}
 
-Bureaucrat& Bureaucrat::operator=(const Bureaucrat &src)
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat  &src)
 {
     this->grade = src.grade;
     return *this;
 }
+
+Bureaucrat::~Bureaucrat(){}

@@ -34,3 +34,8 @@ void    Dog::makeSound() const
  {
 	 return this->type;
  }
+ Brain* Dog::getAdress(void) {
+
+	 return this->Dbrain;
+
+ }

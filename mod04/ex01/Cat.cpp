@@ -34,3 +34,8 @@ void    Cat::makeSound() const
  {
      return this->type;
  }
+  Brain* Cat::getAdress(void) {
+
+	 return this->Cbrain;
+
+ }

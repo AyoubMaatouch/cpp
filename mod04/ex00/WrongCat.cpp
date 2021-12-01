@@ -21,12 +21,12 @@ WrongCat::~WrongCat(void)
     std::cout <<"WrongCat was destroyed"<<std::endl;
 }
 
-void    WrongCat::makeSound()
+void    WrongCat::makeSound() const
 {
     std::cout<<"Wrong Meow Meow !!"<<std::endl;
 }
 
- std::string WrongCat::getType()
+ std::string WrongCat::getType() const
  {
      return this->type;
  }

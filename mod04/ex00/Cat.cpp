@@ -21,12 +21,12 @@ Cat::~Cat(void)
     std::cout <<"Cat was destroyed"<<std::endl;
 }
 
-void    Cat::makeSound()
+void    Cat::makeSound() const
 {
     std::cout<<"Meow Meow !!"<<std::endl;
 }
 
- std::string Cat::getType()
+ std::string Cat::getType() const
  {
      return this->type;
  }

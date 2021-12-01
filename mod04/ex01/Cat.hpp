@@ -13,6 +13,7 @@ class Cat : public Animal{
         ~Cat();
         void   makeSound() const;
         std::string getType() const;
+        Brain* getAdress();
 };
 
 #endif

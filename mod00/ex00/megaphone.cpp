@@ -16,8 +16,6 @@ int main(int argc, char* argv[])
 				ch = toupper(argv[i][j]);
 				std::cout << ch;
 			}
-			if (argv[i + 1])
-				std::cout<<" ";
 		}
 		std::cout<<std::endl;
 	}

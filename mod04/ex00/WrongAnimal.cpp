@@ -21,12 +21,12 @@ WrongAnimal::~WrongAnimal(void)
     std::cout <<"WrongAnimal was destroyed"<<std::endl;
 }
 
-void    WrongAnimal::makeSound()
+void    WrongAnimal::makeSound() const
 {
     std::cout<<"Wrong Silent !!"<<std::endl;
 }
 
- std::string WrongAnimal::getType()
+ std::string WrongAnimal::getType() const
  {
      return this->type;
  }

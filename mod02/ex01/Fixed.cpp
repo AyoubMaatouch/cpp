@@ -14,7 +14,7 @@ Fixed::Fixed(int const number)
 Fixed::Fixed(float const number)
 {
     std::cout<<"Float constructor called"<<std::endl;
-    this->value = (float)roundf(number * (1 << this->fra_bit));
+    this->value = (float)roundf(number * (float)(powf (2 , this->fra_bit)));
 }   
 
 Fixed::Fixed(Fixed const &src )

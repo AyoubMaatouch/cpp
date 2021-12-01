@@ -21,11 +21,11 @@ Dog::~Dog(void)
     std::cout <<"Dog was destroyed"<<std::endl;
 }
 
-void    Dog::makeSound()
+void    Dog::makeSound() const
 {
     std::cout<<"Bark Bark !!"<<std::endl;
 }
- std::string Dog::getType()
+ std::string Dog::getType() const
  {
      return this->type;
  }

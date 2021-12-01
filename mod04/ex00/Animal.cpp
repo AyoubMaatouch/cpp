@@ -21,12 +21,12 @@ Animal::~Animal(void)
     std::cout <<"Animal was destroyed"<<std::endl;
 }
 
-void    Animal::makeSound()
+void    Animal::makeSound() const
 {
     std::cout<<"Silent"<<std::endl;
 }
 
- std::string Animal::getType()
+ std::string Animal::getType() const
  {
      return this->type;
  }
