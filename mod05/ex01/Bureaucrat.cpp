@@ -43,6 +43,14 @@ void Bureaucrat::deGrade(void)
 		throw GradeTooLowException();
 }
 
+void Bureaucrat::signForm(const Form &ref)
+{
+	if (ref.getSign() == true)
+		std::cout << this->getName() <<" signs "<< ref.getName() <<std::endl;
+	else
+		std::cout << this->getName() <<" cannot sign "<< ref.getName() << " because grade is too Low"<<std::endl;
+
+}
 std::ostream &operator<<(std::ostream& stream, Bureaucrat&  B) 
 {
 	stream <<B.getName()<<", bureaucrat grade "<< B.getGrade();
