@@ -33,15 +33,15 @@ std::string Form::getName() const { return this->_name; };
 
 void Form::beSigned(Bureaucrat& ref)
 {
-    if (this->getSinGrade() > ref.getGrade())
+    if (this->getSinGrade() < ref.getGrade())
         {
             ref.signForm((*this));
             throw GradeTooLowException();
         }
         else
         {
-            ref.signForm((*this));
             this->_sign = true;
+            ref.signForm((*this));
         }
 }
 
@@ -50,11 +50,11 @@ std::ostream &operator<<(std::ostream& stream, Form& src)
     
     stream<< "Form is";
     if (src.getSign() == true)
-        stream<<" is Signed, ";
+        stream<<" is [Signed], [";
     else
-        stream<<" NOT Signed, ";
-    stream<< src.getSinGrade() << " Signing Grade";
-    stream<< src.getExeGrade() << " Executing Grade";
+        stream<<" [NOT Signed], [";
+    stream<< src.getSinGrade() << "] Signing Grade, [";
+    stream<< src.getExeGrade() << "] Executing Grade";
 
     return stream;
 }
