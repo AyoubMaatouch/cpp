@@ -51,6 +51,20 @@ void Bureaucrat::signForm(const Form &ref)
 		std::cout << this->getName() <<" cannot sign "<< ref.getName() << " because grade is too Low"<<std::endl;
 
 }
+void	Bureaucrat::executeForm(Form const & form)
+{
+	if (form.getSign() && (this->grade == form.getExeGrade()))
+		std::cout<< this->name <<" executes "<< form.getName()<<std::endl;
+	else
+	{
+		if (!form.getSign())
+			std::cout<< this->name <<" can't executes "<< form.getName()<<" Due to the Form not being Signed."<<std::endl;
+		else if (this->grade > form.getExeGrade())
+			std::cout<< this->name <<" can't executes "<< form.getName()<<" Due to the Low grade ."<<std::endl;
+	}
+	
+}
+
 std::ostream &operator<<(std::ostream& stream, Bureaucrat&  B) 
 {
 	stream <<B.getName()<<", bureaucrat grade "<< B.getGrade();

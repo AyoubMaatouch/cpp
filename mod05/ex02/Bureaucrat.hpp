@@ -22,7 +22,7 @@ class Bureaucrat {
         void        inGrade();
         void        deGrade();
         void signForm(const Form&);
-        
+        void executeForm(Form const & form);
         class GradeTooHighException : public std::exception {
                  const char* what() const throw() {
                      return "Grade is Too High";

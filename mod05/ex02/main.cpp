@@ -15,10 +15,13 @@ int main()
         PresidentialPardonForm pre("Laarbi");
         RobotomyRequestForm rob("Cheat");
 
-        // pre.beSigned(bac);
+        pre.beSigned(bac);
+        bac.executeForm(sher);
+        bac.executeForm(rob);
+        bac.executeForm(pre);
         // pre.execute(bac);
-        rob.beSigned(bac);
-        rob.execute(bac);
+        // rob.beSigned(bac);
+        // rob.execute(bac);
         // sher.beSigned(bac);
         // sher.execute(bac);        
 
