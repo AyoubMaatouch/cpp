@@ -10,15 +10,16 @@ int main()
     
     try 
     {
-        Bureaucrat bac("ayoub", 5);
+        Bureaucrat bac("ayoub", 4);
         ShrubberyCreationForm sher("Director");
         PresidentialPardonForm pre("Laarbi");
         RobotomyRequestForm rob("Cheat");
 
-        pre.beSigned(bac);
+        // pre.beSigned(bac);
         bac.executeForm(sher);
         bac.executeForm(rob);
         bac.executeForm(pre);
+        
         // pre.execute(bac);
         // rob.beSigned(bac);
         // rob.execute(bac);

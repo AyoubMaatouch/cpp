@@ -53,7 +53,7 @@ void Bureaucrat::signForm(const Form &ref)
 }
 void	Bureaucrat::executeForm(Form const & form)
 {
-	if (form.getSign() && (this->grade == form.getExeGrade()))
+	if (form.getSign() && (this->grade <= form.getExeGrade()))
 		std::cout<< this->name <<" executes "<< form.getName()<<std::endl;
 	else
 	{
