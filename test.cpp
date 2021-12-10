@@ -1,4 +1,4 @@
-// #include <iostream>
+#include <iostream>
 
 // class AB {
 // public:
@@ -10,8 +10,11 @@
 // //  void f();
 //  public:
 //  D2() {std::cout<<"f*** off"<<std::endl;}
-// };
 
-// int main() {
-//     D2 x;
-// }
+// };
+int main() {
+ 
+ std::string hi = "Robo request";
+    std::cout << hi.find("MOK") << std::endl;
+
+}
