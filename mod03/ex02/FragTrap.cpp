@@ -1,6 +1,6 @@
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap (std::string const &name) : ScavTrap(name)
+FragTrap::FragTrap (std::string const &name) : ClapTrap(name)
 {
 	this->name = name;
 	this->hitpoints = 100;

@@ -1,9 +1,9 @@
 #ifndef FRAG_TRAP_HPP
 #define FRAG_TRAP_HPP
 
-#include "ScavTrap.hpp"
+#include "ClapTrap.hpp"
 
-class FragTrap : public ScavTrap {
+class FragTrap : public ClapTrap {
 	
 	public:
 		FragTrap(std::string const &name);
