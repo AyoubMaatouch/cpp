@@ -2,16 +2,54 @@
 
 Intern::Intern() {}
 
-Intern::Intern(Intern const &src) { }
+Intern::Intern(Intern const &src) { 
+    *this = src;
+}
 
-Intern& Intern::operator=(Intern const &src)
+void Intern::operator=(Intern const &src)
 {
-    return *this;
+    (void)(src);
 }
 
 Intern::~Intern() {}
 
-Form&   Intern::makeForm(std::string request, std::string name)
+
+
+Form*   Intern::makeForm(std::string request, std::string name)
 {
+    std::string msg[3] = {
+         "presidential pardon" ,
+         "robotomy request" ,
+         "shrubbery creation" 
+     };
      
+    
+    try
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            if (msg[i] == request)
+            {
+                throw i;
+            }
+        }
+            std::cout<<"the requested Form is not Found"<<std::endl;
+    }
+    catch   (int target)
+    {
+        std::cout << target << std::endl;
+       switch (target)
+       {
+        case 0:
+            std::cout<<"Intern creates PresidentialPardonForm"<<std::endl;
+            return new PresidentialPardonForm(name);
+        case 1:
+            std::cout<<"Intern creates RobotomyRequestForm"<<std::endl;
+            return new RobotomyRequestForm(name);
+        case 2:
+            std::cout<<"Intern creates ShrubberyCreationForm"<<std::endl;
+            return new ShrubberyCreationForm(name);
+       }
+    }
+    return NULL;   
 }

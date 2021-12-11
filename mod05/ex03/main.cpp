@@ -3,29 +3,22 @@
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
-
+#include "Intern.hpp"
 int main()
 {
 
     
     try 
     {
-        Bureaucrat bac("ayoub", 4);
-        ShrubberyCreationForm sher("Director");
-        PresidentialPardonForm pre("Laarbi");
-        RobotomyRequestForm rob("Cheat");
-
-        // pre.beSigned(bac);
-        bac.executeForm(sher);
-        bac.executeForm(rob);
-        bac.executeForm(pre);
-        
-        // pre.execute(bac);
-        // rob.beSigned(bac);
-        // rob.execute(bac);
-        // sher.beSigned(bac);
-        // sher.execute(bac);        
-
+        Bureaucrat b("bName", 1);
+        Intern someRandomIntern;
+        Form *rrf;
+        rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+        if (rrf)
+        {
+            rrf->beSigned(b);
+            rrf->execute(b);
+        }
     }
     catch (std::exception & e)
     {

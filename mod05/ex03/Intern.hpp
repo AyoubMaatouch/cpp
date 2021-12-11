@@ -10,10 +10,11 @@ class Intern {
     public:
         Intern();
         Intern(Intern const &);
-        Intern& operator=(Intern const &);
+        void operator=(Intern const &);
         ~Intern();
         
-        Form&   makeForm(std::string, std::string);
+        Form*   makeForm(std::string, std::string);
+        
 };
 
 #endif

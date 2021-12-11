@@ -29,7 +29,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor)
 {
     if (this->getSign())
     {
-      if (this->getExeGrade() <= executor.getGrade())
+      if (this->getExeGrade() >= executor.getGrade())
       {
           std::ofstream myfile (this->_target + "_shrubbery");
           if (myfile.is_open())

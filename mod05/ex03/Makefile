@@ -1,5 +1,5 @@
 CC=clang++
-SRC=Bureaucrat.cpp Form.cpp main.cpp ShrubberyCreationForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp
+SRC=Bureaucrat.cpp Form.cpp Intern.cpp main.cpp ShrubberyCreationForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp
 DEPS= $(SRC) 
 CFLAGS=-Wall -Wextra -Werror --std=c++98
 NAME=Shrubbery

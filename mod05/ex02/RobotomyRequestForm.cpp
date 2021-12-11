@@ -18,7 +18,7 @@ void  RobotomyRequestForm::execute(Bureaucrat const & executor)
 {
     if (this->getSign())
     {
-        if (this->getExeGrade() <= executor.getGrade())
+        if (this->getExeGrade() >= executor.getGrade())
         {
             srand(time(NULL));
    		    if (rand() % 2)
