@@ -4,13 +4,11 @@
 
 int main()
 {
+    
+    /*---------------[Tesing Abstract class]---------------------*/
     // Animal animal;
 
-    //----------------------------------------
-    Dog dog;
-    Cat cat;
-    std::cout << dog.getType() << std::endl;
-    std::cout << cat.getType() << std::endl;
+    /*---------------[Tesing DEEP copy]-------------------------*/
 
     std::cout << "------------------" << std::endl;
 

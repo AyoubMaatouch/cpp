@@ -1,5 +1,5 @@
 CC=clang++
-SRC=Animal.cpp Cat.cpp Dog.cpp main.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
+SRC=Animal.cpp Cat.cpp Dog.cpp main.cpp  Brain.cpp
 DEPS= $(SRC) 
 CFLAGS=-Wall -Wextra -Werror --std=c++98
 NAME=Abstract
