@@ -8,6 +8,7 @@ int: 0
 float: 0.0f
 double: 0.0
 */
+
 bool for_science(std::string str)
 {
     if (str == "inf" ||str == "+inf" || str == "-inf" || str == "-inff"|| str == "-inff")
@@ -15,15 +16,11 @@ bool for_science(std::string str)
     return false;
 }
 
-bool isNumber(std::string str) throw(bool)
+bool isNumber(std::string s) throw (bool)
 {
-    
-	for (int i = 0; str[i] ; i++) {
-        if (str[i] == '.' || str[i] == '-' || str[i] == 'f')
-            continue ;
-		if (std::isdigit(str[i]) == 0) throw false;
-	}
-	return true;
+    if (s.find_first_not_of("-.f0123456789") != std::string::npos)
+	    throw false;
+    return true;
 }
 
 int main (int ac, char *av[])
@@ -34,7 +31,7 @@ int main (int ac, char *av[])
         try
         {
             /* code */
-            if ((isNumber(av[1]) || for_science(av[1])))
+            if (for_science(av[1]) || isNumber(av[1]))
             {
                 int var = static_cast<int>(std::atoi(std::string(av[1]).c_str()));
                 std::cout << "char: " ;
