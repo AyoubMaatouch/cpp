@@ -44,10 +44,10 @@ void identify(Base& p)
 {
     try
     {
-     A& x = dynamic_cast<A&>(p);
-    std::cout << "A"<<std::endl;
-    x.~A();
-    return ;
+        A& x = dynamic_cast<A&>(p);
+        std::cout << "A"<<std::endl;
+         x.~A();
+         return ;
     }
     catch(const std::exception& e)
     {

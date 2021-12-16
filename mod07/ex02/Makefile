@@ -1,8 +1,8 @@
 CC=clang++
-SRC=Animal.cpp Cat.cpp Dog.cpp main.cpp  Brain.cpp
+SRC=main.cpp
 DEPS= $(SRC) 
-CFLAGS=-Wall -Wextra -Werror --std=c++98
-NAME=Brainloop
+CFLAGS=#-Wall -Wextra -Werror --std=c++98
+NAME=magic
 
 all: $(NAME)
 
