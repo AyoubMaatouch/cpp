@@ -1,6 +1,5 @@
 #include <iostream>
-
-
+#define not !=
 int foo() throw(int)
 {
     throw "1111";
@@ -13,8 +12,13 @@ int main()
     
     
        
-        int * a = new int();
-
-        std::cout << *a << std::endl;
-        uintptr_t c;
+       while (i < 10) // O(n)
+       {
+        j = 0;
+        while (j < n)
+        {
+            /* code */
+        }
+       }
+        
 }
