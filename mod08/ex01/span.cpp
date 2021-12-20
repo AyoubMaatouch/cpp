@@ -31,7 +31,15 @@ int     Span::shortestSpan()
     if (this->container.size() < 1)
         throw NoSpanFound();
     std::sort(this->container.begin(), this->container.end());
-    return *(this->container.begin() + 1) - *(this->container.begin());
+    unsigned int ShortSpan = container[1] - container[0];
+    for (unsigned int i = 0; i < container.size() ; i++)
+    {
+       if ( (i != container.size()) && ShortSpan > (container[i + 1] - container[i]))
+            {
+                ShortSpan = (container[i + 1] - container[i]);
+            }
+    }
+    return ShortSpan;
 }
 
 int     Span::longestSpan()
@@ -68,3 +76,6 @@ const char* Span::ContainerFilled::what() const throw()
 {
     return ("Container is full");
 }
+
+
+
