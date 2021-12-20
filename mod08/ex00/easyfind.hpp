@@ -5,13 +5,8 @@
 template <typename T>
 void easyfind(T &container, int value)
 {
-    for (int i = 0 ; container[i] ; i++)
-    {
-        if (container[i] == value)
-        {
-            PRINT("FOUND");
-            return ;
-        }
-    }
-    std::cout << "not found" << std::endl;
+  if(*(std::find(container.begin(), container.end(), value)) == value)
+        PRINT("found");
+    else
+        PRINT("not found");
 }
